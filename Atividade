@@ -1,0 +1,104 @@
+---
+title: "Roteiro em Grupo — Projeto Fiscalização de Velocidade"
+subtitle: "Aula 1 · Referente à Aula 16 — Em grupo, sem valor de nota"
+lang: pt
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+::: {.callout-note}
+Este roteiro **não é uma atividade avaliativa** — é o documento de trabalho
+do grupo para o projeto integrador. Preencham juntos; ele vai ser
+consultado nas próximas aulas.
+:::
+
+::: {.callout-tip}
+**Como preencher:** esta página é só leitura. Para preencher, abram o
+[arquivo-fonte deste roteiro no GitHub](https://github.com/pontarolli/cnvi-aulas/blob/master/atividades/roteiro-projeto-fiscalizacao-aula1.qmd),
+copiem todo o texto e colem em um arquivo novo (ex.: `roteiro.md`) no
+repositório do próprio grupo — pelo botão **Add file → Create new file**,
+direto no navegador. Editem os `______` ali mesmo pelo editor web do
+GitHub e cliquem em **Commit changes** para salvar.
+:::
+
+**Grupo (tipo de veículo):** ______________________________________________
+
+**Integrantes (máx. 5):** ______________________________________________
+
+---
+
+## 1. Regra de velocidade do grupo
+
+Cada grupo já tem um veículo definido pelo professor — não há repetição entre a Turma A e a
+Turma B. Encontrem o veículo do grupo na tabela e copiem a regra correspondente.
+
+| Turma | Veículo | Regra de velocidade |
+|---|---|---|
+| A | Carro | Segue o limite normal da via |
+| A | Ônibus | Segue o limite da via, nunca acima de 90 km/h |
+| A | Caminhão | Segue o limite da via, nunca acima de 80 km/h |
+| A | Patinete elétrico | Só em vias até 60 km/h; teto próprio de 25 km/h |
+| B | Moto | Segue o limite normal da via |
+| B | Mobilete a combustão | Segue o limite da via, nunca acima de 60 km/h |
+| B | Skate elétrico | Só em vias até 60 km/h; teto próprio de 20 km/h |
+| B | Monociclo elétrico | Só em vias até 60 km/h; teto próprio de 24 km/h |
+
+**Nosso veículo:** ______________________________________________
+
+**Nossa regra de velocidade (copiada da tabela):** ______________________________________________
+
+## 2. Rota simulada
+
+Definam uma sequência de 3 a 5 trechos pelos quais o veículo vai "passar". Para
+cada trecho, anotem o tipo de via e o limite de velocidade.
+
+| Ordem | Tipo de via | Limite (km/h) |
+|---|---|---|
+| 1 | | |
+| 2 | | |
+| 3 | | |
+| 4 | | |
+| 5 | | |
+
+## 3. Infraestrutura compartilhada
+
+O Raspberry Pi **não é do grupo** — são **6 nós compartilhados** pelos 8 grupos das duas
+turmas (`rpi-102` a `rpi-107`; o `rpi-101` é a máquina de testes do professor). Mesmo
+usuário/senha e mesma rede em todos:
+
+- **Usuário SSH:** `pi`
+- **Senha:** `147`
+- **Rede Wi-Fi (SSID):** `i4` — senha `147258369`
+
+**Prefixo do nosso grupo** (para nomear containers/tópicos MQTT mais pra frente, já que o nó é
+compartilhado): ______________________________________________ *(ex.: `carro`, `onibus`)*
+
+**Nó(s) que testamos hoje:** ______________________________________________
+
+## 4. Checklist — só para o grupo responsável por preparar um nó hoje
+
+- [ ] Raspberry Pi Imager aberto, dispositivo (Raspberry Pi 3B+) e OS (*Raspberry Pi OS Lite 64-bit — Legacy*) selecionados
+- [ ] Opções avançadas: hostname definido (próximo número livre, 102 a 107)
+- [ ] Opções avançadas: SSH habilitado (senha)
+- [ ] Opções avançadas: usuário `pi` / senha `147` definidos
+- [ ] Opções avançadas: WLAN `i4` configurada
+- [ ] Locale: fuso `America/Sao_Paulo`, teclado `br`
+- [ ] Gravação concluída e verificada
+- [ ] Nó testado (`ping` + `ssh`) **ou** guardado para testar na próxima estação livre
+
+## 5. Desafio bônus (opcional, sem nota) — só se sobrar tempo
+
+A escola tem ~500 TV boxes (2 GB de RAM) ainda não testadas como nó de infraestrutura. Se
+terminarem tudo acima, peguem 2 TV boxes, instalem um Linux e tentem fazer as duas se
+comunicarem (`ping` já conta como resultado). Se der certo, é o argumento para pedir ao diretor
+mais unidades liberadas.
+
+**Conseguimos o quê?** ______________________________________________
+
+## 6. Para a próxima aula de CNVI
+
+O que falta terminar? ______________________________________________
+
+______________________________________________
