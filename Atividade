@@ -73,7 +73,7 @@ usuário/senha e mesma rede em todos:
 - **Rede Wi-Fi (SSID):** `i4` — senha `147258369`
 
 **Prefixo do nosso grupo** (para nomear containers/tópicos MQTT mais pra frente, já que o nó é
-compartilhado): ______________________________________________ *(ex.: `carro`, `onibus`)*
+compartilhado): carro *(ex.: `carro`, `onibus`)*
 
 **Nó(s) que testamos hoje:** ______________________________________________
 
