@@ -1,4 +1,4 @@
-Grupo: Beatriz Costa, Beatriz Amorim, Glória, Heloisa e Agatha 
+Grupo: Beatriz Amorim, Beatriz Chiara, Glória, Heloisa e Agatha 
 
 # Relatório de Formatação do Raspberry Pi 106
 
