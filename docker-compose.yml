@@ -22,3 +22,8 @@ services:
 volumes:
   portainer_data:
   node_red_data:
+
+
+
+
+ADENDO (setup token): ec90d8429425732178421e5e6065ce1e9bc43a0de0bfbf9bcf09764bbbe23908 
