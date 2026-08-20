@@ -1,15 +1,4 @@
 services:
-  portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer
-    restart: always
-    ports:
-      - "8000:8000"
-      - "9443:9443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-
   node-red:
     image: nodered/node-red:latest
     container_name: node-red
@@ -18,10 +7,15 @@ services:
       - "1880:1880"
     volumes:
       - node_red_data:/data
+    networks:
+      - fiscalizacao
 
 volumes:
-  portainer_data:
   node_red_data:
+
+networks:
+  fiscalizacao:
+    external: true
 
 
 
