@@ -1,0 +1,641 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5ac22522c2f8e519",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "6604b61234e37d80"
+            ]
+        ]
+    },
+    {
+        "id": "6604b61234e37d80",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "27fdeb3b196479af",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "078fe6fd5d2df6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 760,
+        "y": 380,
+        "wires": [
+            [
+                "9f70bc01baa40b3d"
+            ]
+        ]
+    },
+    {
+        "id": "9f02798db4178dce",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "078fe6fd5d2df6c6",
+        "x": 480,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "931ae4beefe2129a",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiscalizacao/carro/velocidade",
+        "payload": "10",
+        "payloadType": "str",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "9f02798db4178dce"
+            ]
+        ]
+    },
+    {
+        "id": "9f70bc01baa40b3d",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d0f17ca60cf7b46b",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiscalizacao/carro/gps",
+        "payload": "-22.9519, -43.2105",
+        "payloadType": "str",
+        "x": 150,
+        "y": 640,
+        "wires": [
+            [
+                "d7252d150ad69ac3"
+            ]
+        ]
+    },
+    {
+        "id": "d7252d150ad69ac3",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/gps",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "078fe6fd5d2df6c6",
+        "x": 480,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "12369ef0df35c48a",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiscalizacao/carro/tipoveiculo",
+        "payload": "Carro",
+        "payloadType": "str",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "f248a785f4834b39"
+            ]
+        ]
+    },
+    {
+        "id": "f248a785f4834b39",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/tipoveiculo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "078fe6fd5d2df6c6",
+        "x": 500,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "f0eb20fa8d288848",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "ac8ed4d461dd1a47",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "3ddf5ce6a2418f6f",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 1",
+        "func": "// Define o limite de velocidade da via\nconst limiteVelocidade = 90;\n\n// Obtém o valor da velocidade vindo do payload (ex: 10, 90 ou 150)\nconst velocidade = Number(msg.payload);\n\nif (velocidade > limiteVelocidade) {\n    msg.statusVelocidade = \"Acima do limite\";\n    msg.payload = `Atenção: ${velocidade} km/h está ACIMA da velocidade limite de ${limiteVelocidade} km/h!`;\n} else if (velocidade === limiteVelocidade) {\n    msg.statusVelocidade = \"No limite\";\n    msg.payload = `Atenção: ${velocidade} km/h está exatamente NO LIMITE da velocidade permitida.`;\n} else {\n    msg.statusVelocidade = \"Abaixo do limite\";\n    msg.payload = `Velocidade OK: ${velocidade} km/h está ABAIXO da velocidade limite de ${limiteVelocidade} km/h.`;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 860,
+        "wires": [
+            [
+                "869b7fe55c0999fc"
+            ]
+        ]
+    },
+    {
+        "id": "691aac2667c5f7bf",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/gps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "078fe6fd5d2df6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 640,
+        "wires": [
+            [
+                "f0eb20fa8d288848"
+            ]
+        ]
+    },
+    {
+        "id": "d14b077a61447edd",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/tipoveiculo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "078fe6fd5d2df6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 780,
+        "y": 720,
+        "wires": [
+            [
+                "ac8ed4d461dd1a47"
+            ]
+        ]
+    },
+    {
+        "id": "1fc58549a94f91f4",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiscalizacao/carro/velocidade",
+        "payload": "90",
+        "payloadType": "str",
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "38ab8e2e1d565877"
+            ]
+        ]
+    },
+    {
+        "id": "38ab8e2e1d565877",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "078fe6fd5d2df6c6",
+        "x": 480,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "29972a3b29d3c520",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "078fe6fd5d2df6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "1a1e6cfc77d309f1"
+            ]
+        ]
+    },
+    {
+        "id": "1a1e6cfc77d309f1",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "87f9349fdd211dbd",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiscalizacao/carro/velocidade",
+        "payload": "150",
+        "payloadType": "str",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "f56ffa0fdd7c4256"
+            ]
+        ]
+    },
+    {
+        "id": "f56ffa0fdd7c4256",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "078fe6fd5d2df6c6",
+        "x": 477,
+        "y": 542,
+        "wires": []
+    },
+    {
+        "id": "51eb846a4505f0b1",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "fiscalizacao/carro/velocidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "078fe6fd5d2df6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 800,
+        "y": 540,
+        "wires": [
+            [
+                "d5885b6d255acc3f"
+            ]
+        ]
+    },
+    {
+        "id": "d5885b6d255acc3f",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "869b7fe55c0999fc",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "f20f84bd99b38a74",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "str",
+        "x": 150,
+        "y": 820,
+        "wires": [
+            [
+                "3ddf5ce6a2418f6f"
+            ]
+        ]
+    },
+    {
+        "id": "1bfe3125203f64ba",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "90",
+        "payloadType": "str",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "3ddf5ce6a2418f6f"
+            ]
+        ]
+    },
+    {
+        "id": "8ce704a20ef586bf",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "150",
+        "payloadType": "str",
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "3ddf5ce6a2418f6f"
+            ]
+        ]
+    },
+    {
+        "id": "078fe6fd5d2df6c6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.107.71.56",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
