@@ -1,3 +1,4 @@
 Trocar o IP toda vez no Node-Red e no código;
-Instalar a placa, o drive e a biblioteca;
+Instalar a placa (ESP32, e depois DOIT ESP32 DEVKIT V1, depois selecionar a porta COM3), o drive (CP210x_Universal_Windows_Driver) e a biblioteca (PubSubClient);
 ssh pi@rpi-104, dar yes e digitar 147 (senha);
+ifconfig para pegar o IP do wlan0, no campo inet;
