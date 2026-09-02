@@ -1,1 +1,3 @@
-
+Trocar o IP toda vez no Node-Red e no código;
+Instalar a placa, o drive e a biblioteca;
+ssh pi@rpi-104, dar yes e digitar 147 (senha);
