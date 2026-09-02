@@ -6,7 +6,7 @@
 // =========================================================================
 const char* ssid = "i4";                     // Nome exato da sua rede Wi-Fi
 const char* password = "147258369";          // Senha da rede Wi-Fi
-const char* mqtt_server = "10.10.10.104";    // IP da Raspberry Pi (wlan0)
+const char* mqtt_server = "10.10.10.102";    // IP da Raspberry Pi (wlan0)
 const int mqtt_port = 1883;                  // Porta padrão do MQTT
 
 // =========================================================================
